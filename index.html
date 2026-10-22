@@ -1,0 +1,787 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SR. Christinem Memorial Hospital offers affordable healthcare services, open 24 hours a day. Your Health, Our Priority.">
+  <title>SR. Christinem Memorial Hospital | Your Health, Our Priority</title>
+
+  <style>
+    :root {
+      --navy: #073451;
+      --blue: #087ca7;
+      --teal: #10a6a0;
+      --gold: #f4c95d;
+      --light: #f3f8fb;
+      --white: #ffffff;
+      --text: #263746;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.7;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a { text-decoration: none; }
+
+    .topbar {
+      padding: 9px 15px;
+      text-align: center;
+      background: var(--navy);
+      color: white;
+      font-size: 14px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 15px 6%;
+      background: white;
+      box-shadow: 0 3px 16px #07345115;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--navy);
+    }
+
+    .brand img {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .brand h2 {
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .brand p {
+      font-size: 12px;
+      color: var(--teal);
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    nav a {
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    nav a:hover { color: var(--teal); }
+
+    .hero {
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      padding: 75px 8%;
+      color: white;
+      background:
+        linear-gradient(90deg, #03263de8, #03263d70),
+        url("myimages/hospital.jpg") center/cover no-repeat,
+        var(--navy);
+    }
+
+    .hero-content {
+      max-width: 760px;
+      animation: appear 0.8s ease;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 14px 0;
+      font-size: clamp(36px, 6vw, 62px);
+      line-height: 1.15;
+    }
+
+    .hero p {
+      max-width: 680px;
+      font-size: 18px;
+      margin-bottom: 22px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      margin: 5px 5px 5px 0;
+      border-radius: 7px;
+      font-weight: bold;
+      transition: 0.25s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .primary {
+      background: var(--teal);
+      color: white;
+    }
+
+    .light-button {
+      background: white;
+      color: var(--navy);
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 25px 7%;
+      text-align: center;
+      background: var(--light);
+    }
+
+    .trust-strip strong {
+      display: block;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    section {
+      padding: 70px 8%;
+      scroll-margin-top: 100px;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .section-heading .eyebrow {
+      color: var(--teal);
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(27px, 4vw, 40px);
+      margin: 8px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .photo {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      background: var(--light);
+    }
+
+    .director-photo { height: 380px; }
+
+    .about-copy h2 {
+      color: var(--navy);
+      font-size: 35px;
+      margin: 8px 0 15px;
+    }
+
+    .about-copy p { margin-bottom: 14px; }
+
+    .check-list {
+      list-style: none;
+      margin: 18px 0;
+    }
+
+    .check-list li { margin: 7px 0; }
+
+    .check-list li::before {
+      content: "✓ ";
+      color: var(--teal);
+      font-weight: bold;
+    }
+
+    .services { background: var(--light); }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      border-bottom: 4px solid var(--teal);
+      box-shadow: 0 5px 20px #0734510c;
+      transition: 0.25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px #07345118;
+    }
+
+    .service-icon { font-size: 32px; }
+
+    .service-card h3 {
+      color: var(--navy);
+      margin: 8px 0;
+    }
+
+    .affordable {
+      text-align: center;
+      color: white;
+      background: var(--navy);
+    }
+
+    .affordable h2 {
+      color: white;
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 10px 0;
+    }
+
+    .affordable p {
+      max-width: 750px;
+      margin: 0 auto 20px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--light);
+      box-shadow: 0 5px 20px #07345112;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .gallery-card:hover img { transform: scale(1.04); }
+
+    .gallery-card h3 {
+      color: var(--navy);
+      padding: 13px 16px 0;
+    }
+
+    .gallery-card p { padding: 0 16px 16px; }
+
+    .booking {
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+    }
+
+    .booking h2 {
+      color: white;
+      font-size: 36px;
+      margin: 10px 0;
+    }
+
+    .booking p {
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+
+    .booking-form {
+      max-width: 820px;
+      margin: 28px auto 20px;
+      padding: 28px;
+      border-radius: 8px;
+      background: white;
+      color: var(--text);
+      text-align: left;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .form-field label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .form-field input,
+    .form-field select {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 12px;
+      border: 1px solid #c8d6dd;
+      border-radius: 5px;
+      background: white;
+      color: var(--text);
+      font: inherit;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus {
+      outline: 3px solid #10a6a044;
+      border-color: var(--teal);
+    }
+
+    .form-note {
+      margin: 16px 0 12px !important;
+      color: #536574;
+      font-size: 13px;
+    }
+
+    .booking-form .button {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .contact-card {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 25px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-card h3 {
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .contact-card a { color: var(--blue); }
+
+    footer {
+      background: #03263d;
+      color: white;
+      padding: 35px 7%;
+      text-align: center;
+    }
+
+    footer h2 { color: var(--gold); }
+
+    footer p { margin: 6px 0; }
+
+    footer a {
+      color: var(--gold);
+      overflow-wrap: anywhere;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 15px 0;
+    }
+
+    .floating-call {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 200;
+      padding: 13px 18px;
+      border-radius: 50px;
+      background: var(--teal);
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 5px 18px #0003;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      header { justify-content: center; }
+      .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 15px 4%; }
+      .brand h2 { font-size: 15px; }
+      nav { justify-content: center; gap: 12px; }
+      nav a { font-size: 13px; }
+      .hero { padding: 60px 6%; min-height: 480px; }
+      .hero p { font-size: 16px; }
+      section { padding: 48px 6%; }
+      .trust-strip, .service-grid, .gallery-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .director-photo { height: 280px; }
+      .gallery-card img { height: 250px; }
+      .booking-form { padding: 20px; }
+      .form-grid { grid-template-columns: 1fr; gap: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    OPEN 24 HOURS &nbsp; | &nbsp; AFFORDABLE HEALTHCARE &nbsp; | &nbsp; YOUR HEALTH, OUR PRIORITY
+  </div>
+
+  <header>
+    <a class="brand" href="#home">
+      <img src="myimages/logo.jpg" alt="Hospital logo">
+      <div>
+        <h2>SR. Christinem Memorial Hospital</h2>
+        <p>Your Health, Our Priority</p>
+      </div>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#booking">Appointments</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">Welcome to our hospital</span>
+        <h1>Your Health, Our Priority</h1>
+        <p>
+          Welcome to SR. Christinem Memorial Hospital. We are committed to
+          providing accessible and affordable healthcare with care, dignity
+          and respect for our community.
+        </p>
+        <p><strong>We are open 24 hours a day.</strong></p>
+        <a class="button primary" href="tel:0700720831">Call Us Now</a>
+        <a class="button light-button" href="#services">Explore Services</a>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div>
+        <strong>24 Hours</strong>
+        <span>Open Every Day</span>
+      </div>
+      <div>
+        <strong>Affordable</strong>
+        <span>Healthcare Services</span>
+      </div>
+      <div>
+        <strong>Community</strong>
+        <span>Focused Care</span>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="about-grid">
+        <img
+          class="photo director-photo"
+          src="myimages/director.jpg"
+          alt="Hospital director"
+          loading="lazy"
+        >
+
+        <div class="about-copy">
+          <span class="eyebrow">Who we are</span>
+          <h2>About Our Hospital</h2>
+          <p>
+            SR. Christinem Memorial Hospital is dedicated to serving our
+            community and helping patients access healthcare services.
+            We value compassion, respect and affordable care.
+          </p>
+          <p>
+            Our location is along Masaba–Lukhome Road, approximately
+            400 metres from the tarmac.
+          </p>
+          <ul class="check-list">
+            <li>Open 24 hours a day</li>
+            <li>Affordable healthcare services</li>
+            <li>Convenient road access</li>
+            <li>Telephone booking and enquiries</li>
+          </ul>
+          <a class="button primary" href="#contact">Contact Our Team</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-heading">
+        <span class="eyebrow">What we offer</span>
+        <h2>Our Healthcare Services</h2>
+        <p>
+          All services are at an affordable price. Contact the hospital
+          to confirm availability and charges for individual services.
+        </p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-icon">🩺</div>
+          <h3>Outpatient Care</h3>
+          <p>Consultation and assessment for patients who do not require admission.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🏥</div>
+          <h3>Inpatient Care</h3>
+          <p>Patient admission and care, subject to available facilities.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🚑</div>
+          <h3>Emergency Assistance</h3>
+          <p>Contact the hospital for urgent assistance and directions.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🔬</div>
+          <h3>Laboratory Services</h3>
+          <p>Enquire about available laboratory tests and investigations.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🤱</div>
+          <h3>Maternity Care</h3>
+          <p>Contact the hospital to confirm available maternity services.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🦷</div>
+          <h3>Dental Care</h3>
+          <p>Enquire about available dental assessment and treatment.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">💚</div>
+          <h3>CCC Services</h3>
+          <p>Contact the hospital to confirm available comprehensive care services.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">👨‍👩‍👧</div>
+          <h3>Family Planning</h3>
+          <p>Enquire about available family planning information and services.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">💪</div>
+          <h3>Physiotherapy</h3>
+          <p>Ask about available rehabilitation and physiotherapy services.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="affordable">
+      <span class="eyebrow">Care for our community</span>
+      <h2>All Services at an Affordable Price</h2>
+      <p>
+        Your health matters. Contact our team to ask about available
+        healthcare services, charges and booking arrangements.
+      </p>
+      <a class="button light-button" href="tel:0700720831">Enquire About Prices</a>
+    </section>
+
+    <section id="gallery">
+      <div class="section-heading">
+        <span class="eyebrow">A look inside</span>
+        <h2>Our Hospital Gallery</h2>
+        <p>Pictures of our hospital and facilities.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="myimages/hospital.jpg" alt="Hospital building" loading="lazy">
+          <h3>Our Hospital</h3>
+          <p>Welcome to SR. Christinem Memorial Hospital.</p>
+        </div>
+
+        <div class="gallery-card">
+          <img src="myimages/wards.jpg" alt="Hospital wards" loading="lazy">
+          <h3>Our Wards</h3>
+          <p>Hospital ward facilities.</p>
+        </div>
+
+        <div class="gallery-card">
+          <img src="myimages/director.jpg" alt="Hospital director" loading="lazy">
+          <h3>Hospital Leadership</h3>
+          <p>Dedicated to serving our community.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="booking">
+      <span class="eyebrow">We are here to help</span>
+      <h2>Request an Appointment</h2>
+      <p>
+        Send an appointment request and our team can follow up to confirm availability.
+      </p>
+      <form class="booking-form" id="appointment-form">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="patient-name">Your name</label>
+            <input id="patient-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="patient-phone">Phone number</label>
+            <input id="patient-phone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+          <div class="form-field">
+            <label for="appointment-service">Service</label>
+            <select id="appointment-service" name="service" required>
+              <option value="" selected disabled>Select a service</option>
+              <option>Outpatient Care</option>
+              <option>Inpatient Care</option>
+              <option>Laboratory Services</option>
+              <option>Maternity Care</option>
+              <option>Dental Care</option>
+              <option>CCC Services</option>
+              <option>Family Planning</option>
+              <option>Physiotherapy</option>
+              <option>Other enquiry</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="appointment-date">Preferred date</label>
+            <input id="appointment-date" name="date" type="date">
+          </div>
+        </div>
+        <p class="form-note">Submitting opens your email app with the request prepared. Please do not include medical details.</p>
+        <button class="button primary" type="submit">Prepare email request</button>
+      </form>
+      <p>Prefer to call? <a class="button light-button" href="tel:0700720831">0700720831</a> <a class="button light-button" href="tel:0727300295">0727300295</a></p>
+    </section>
+
+    <section id="contact">
+      <div class="section-heading">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Contact Us</h2>
+        <p>Reach us by telephone or email, or visit our location.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>📞 Telephone</h3>
+          <p>Main line: <a href="tel:0700720831">0700720831</a></p>
+          <p>Booking: <a href="tel:0727300295">0727300295</a></p>
+        </div>
+
+        <div class="contact-card">
+          <h3>✉️ Email</h3>
+          <p>
+            <a href="mailto:srchristinemmemorialhosp@gmail.com">
+              srchristinemmemorialhosp@gmail.com
+            </a>
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>📍 Location</h3>
+          <p>Along Masaba–Lukhome Road, approximately 400 metres from the tarmac.</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>🕒 Opening Hours</h3>
+          <p><strong>Open 24 hours a day, every day.</strong></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <h2>SR. Christinem Memorial Hospital</h2>
+    <p><strong>Your Health, Our Priority</strong></p>
+    <p>Affordable healthcare services · Open 24 hours</p>
+
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <p>
+      Email:
+      <a href="mailto:srchristinemmemorialhosp@gmail.com">srchristinemmemorialhosp@gmail.com</a>
+    </p>
+    <p>Telephone: <a href="tel:0700720831">0700720831</a></p>
+    <p>&copy; SR. Christinem Memorial Hospital. All rights reserved.</p>
+  </footer>
+
+  <a class="floating-call" href="tel:0700720831">☎ Call Hospital</a>
+
+  <script>
+    const appointmentDate = document.querySelector("#appointment-date");
+    const today = new Date();
+    appointmentDate.min = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, "0"), String(today.getDate()).padStart(2, "0")].join("-");
+
+    document.querySelector("#appointment-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const message = [
+        "Appointment request",
+        `Name: ${formData.get("name")}`,
+        `Phone: ${formData.get("phone")}`,
+        `Service: ${formData.get("service")}`,
+        `Preferred date: ${formData.get("date") || "Flexible"}`
+      ].join("\n");
+      const subject = encodeURIComponent("Appointment request");
+      window.location.href = `mailto:srchristinemmemorialhosp@gmail.com?subject=${subject}&body=${encodeURIComponent(message)}`;
+    });
+  </script>
+
+</body>
+</html>
